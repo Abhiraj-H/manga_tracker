@@ -5,7 +5,7 @@ import { Search, Bell, Menu, User, Sun, Moon } from "lucide-react"
 import { useTheme } from "next-themes"
 import { useEffect, useState, useRef } from "react"
 import { Home, Compass, Library, LineChart, X } from "lucide-react"
-import { createBrowserClient } from "@/lib/supabase"
+import { createClient } from "@/lib/supabase"
 import type { User as SupabaseUser } from "@supabase/supabase-js"
 
 const navItems = [
@@ -27,7 +27,7 @@ export function Navbar() {
     setMounted(true)
 
     // Load user session
-    const supabase = createBrowserClient()
+    const supabase = createClient()
     supabase.auth.getUser().then(({ data: { user } }) => setUser(user))
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
       setUser(session?.user ?? null)

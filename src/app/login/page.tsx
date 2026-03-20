@@ -4,7 +4,7 @@ import { useState } from "react"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { Github, Loader2, Mail, Lock } from "lucide-react"
-import { createBrowserClient } from "@/lib/supabase"
+import { createClient } from "@/lib/supabase"
 
 export default function LoginPage() {
   const router = useRouter()
@@ -21,7 +21,7 @@ export default function LoginPage() {
     const email = formData.get("email") as string
     const password = formData.get("password") as string
 
-    const supabase = createBrowserClient()
+    const supabase = createClient()
     const { error: signInError } = await supabase.auth.signInWithPassword({ email, password })
 
     if (signInError) {
@@ -35,7 +35,7 @@ export default function LoginPage() {
 
   async function handleGoogleSignIn() {
     setOauthLoading(true)
-    const supabase = createBrowserClient()
+    const supabase = createClient()
     await supabase.auth.signInWithOAuth({
       provider: "google",
       options: {
