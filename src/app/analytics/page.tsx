@@ -1,5 +1,5 @@
 import { BookOpen, TrendingUp, Clock, CalendarDays, Award } from "lucide-react"
-import { createServerClient } from "@/lib/supabase"
+import { createServerClient } from "@/lib/supabase-server"
 import { redirect } from "next/navigation"
 import { AnalyticsCharts } from "./components/charts"
 
