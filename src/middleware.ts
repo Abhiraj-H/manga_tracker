@@ -1,10 +1,10 @@
 import { NextResponse, type NextRequest } from 'next/server'
-import { createServerClient as _createServerClient } from '@supabase/ssr'
+import { createServerClient } from '@supabase/ssr'
 
 export async function middleware(request: NextRequest) {
   let supabaseResponse = NextResponse.next({ request })
 
-  const supabase = _createServerClient(
+  const supabase = createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
     {

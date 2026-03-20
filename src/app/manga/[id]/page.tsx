@@ -3,6 +3,7 @@ import Link from "next/link"
 import { Star, Clock, BookOpen, Share2, Heart, Play, ListOrdered, ExternalLink } from "lucide-react"
 import { anilistClient, MANGA_DETAILS_QUERY } from "@/lib/api/anilist"
 import { AddToListButton } from "@/components/shared/add-to-list-button"
+import { ShareButton } from "@/components/shared/share-button"
 
 export const revalidate = 3600 // Cache for 1 hour
 
@@ -90,10 +91,7 @@ export default async function MangaDetailPage({ params }: { params: Promise<{ id
               )}
               <div className="flex gap-3">
                 <AddToListButton manga={manga} />
-                <button className="flex-1 flex justify-center items-center gap-2 glass py-3 rounded-xl font-bold text-white transition-all hover:bg-white/10">
-                  <Share2 className="w-5 h-5" />
-                  Share
-                </button>
+                <ShareButton manga={manga} />
               </div>
             </div>
             
