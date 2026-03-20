@@ -1,6 +1,6 @@
 import { MangaCard } from "@/components/shared/manga-card"
 import { Search, Filter, ArrowUpDown } from "lucide-react"
-import { createServerClient } from "@/lib/supabase"
+import { createServerClient } from "@/lib/supabase-server"
 import { redirect } from "next/navigation"
 
 const TABS = ["All", "Reading", "Completed", "Plan to Read", "On Hold", "Dropped"]
